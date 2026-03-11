@@ -8,7 +8,7 @@ const Footer: React.FC = () => {
     { icon: Instagram, href: 'https://www.instagram.com/sauriaconsultoria', label: 'Instagram' },
     { icon: Linkedin, href: '#', label: 'LinkedIn' },
   ];
-  
+
   const quickLinks = [
     { to: '/', label: 'Home' },
     { to: '/sobre', label: 'Sobre Nós' },
@@ -24,17 +24,17 @@ const Footer: React.FC = () => {
           {/* About Section */}
           <div className="space-y-4">
             <Link href="/" className="flex items-center gap-2 text-2xl font-bold font-display text-white">
-              <Leaf className="w-8 h-8 text-primary"/>
-              <span>Sáuria Ambiental</span>
+              <Leaf className="w-8 h-8 text-primary" />
+              <span>Sauria Ambiental</span>
             </Link>
             <p className="text-gray-400">
               Consultoria especializada em meio ambiente, patrimônio cultural e arqueologia para um futuro sustentável. Atuando com excelência em Joinville e Santa Catarina.
             </p>
             <div className="flex space-x-4 mt-4">
               {socialLinks.map((social, index) => (
-                <a 
-                  key={index} 
-                  href={social.href} 
+                <a
+                  key={index}
+                  href={social.href}
                   target={social.href !== '#' ? '_blank' : undefined}
                   rel={social.href !== '#' ? 'noopener noreferrer' : undefined}
                   className="text-gray-400 hover:text-primary transition duration-300"
@@ -79,7 +79,7 @@ const Footer: React.FC = () => {
             </ul>
           </div>
 
-           <div>
+          <div>
             <h3 className="text-lg font-semibold text-white mb-4 font-display">Sáuria Insights</h3>
             <p className="text-gray-400 mb-4">Receba novidades e informações sobre licenciamento ambiental.</p>
             <form className="flex">

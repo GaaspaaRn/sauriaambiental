@@ -13,12 +13,12 @@ export default function Contact() {
     <div className="bg-light animate-fade-in-up">
       <div className="container mx-auto px-6 py-16">
         <div className="text-center mb-12">
-          <h1 className="text-4xl md:text-5xl font-bold font-display text-dark">Entre em Contato</h1>
+          <h1 className="text-4xl md:text-5xl font-bold font-display text-dark"><b></b>Entre em Contato</h1>
           <p className="text-lg text-gray-600 mt-4 max-w-3xl mx-auto">
             Estamos prontos para analisar os desafios regulatórios do seu empreendimento e propor soluções ambientais tecnicamente viáveis para Santa Catarina e região Sul.
           </p>
         </div>
-        
+
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 bg-white p-8 md:p-12 rounded-3xl shadow-xl border border-gray-100">
           {/* Left Column: Contact Info */}
           <div className="space-y-10">
@@ -29,7 +29,7 @@ export default function Contact() {
                   <MapPin className="w-6 h-6 text-primary mt-1 flex-shrink-0" />
                   <div>
                     <span className="font-bold text-gray-800 block mb-1">Matriz Joinville</span>
-                    <span>Rua Walter Eichholz, 545 - Petrópolis<br/>Joinville - Santa Catarina, 89208-620</span>
+                    <span>Rua Walter Eichholz, 545 - Petrópolis<br />Joinville - Santa Catarina, 89208-620</span>
                   </div>
                 </div>
                 <div className="flex items-center gap-4">
@@ -55,41 +55,41 @@ export default function Contact() {
                 </div>
               </div>
             </div>
-            
+
             <div className="bg-green-50 rounded-2xl p-6 border border-green-100">
-                <h3 className="text-xl font-bold font-display text-primary mb-4">Plantão de Licenciamento</h3>
-                <p className="text-sm text-gray-600 mb-6">Em caso de paralisações de obras, autos de infração ou emergências com órgãos ambientais (IMA, IBAMA), utilize nosso contato rápido.</p>
-                <div className="flex flex-col xl:flex-row gap-4">
-                    <a href="https://wa.me/554734299271" target="_blank" rel="noopener noreferrer" className="flex-1 flex items-center justify-center gap-2 bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-4 rounded-xl transition duration-300 shadow-md">
-                        <Bot size={20} /> WhatsApp
-                    </a>
-                    <a href="tel:+554734299271" className="flex-1 flex items-center justify-center gap-2 bg-dark hover:bg-gray-800 text-white font-bold py-3 px-4 rounded-xl transition duration-300 shadow-md">
-                        <PhoneCall size={20} /> Ligar Direto
-                    </a>
-                </div>
+              <h3 className="text-xl font-bold font-display text-primary mb-4">Plantão de Licenciamento</h3>
+              <p className="text-sm text-gray-600 mb-6">Em caso de paralisações de obras, autos de infração ou emergências com órgãos ambientais (IMA, IBAMA), utilize nosso contato rápido.</p>
+              <div className="flex flex-col xl:flex-row gap-4">
+                <a href="https://wa.me/554734299271" target="_blank" rel="noopener noreferrer" className="flex-1 flex items-center justify-center gap-2 bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-4 rounded-xl transition duration-300 shadow-md">
+                  <Bot size={20} /> WhatsApp
+                </a>
+                <a href="tel:+554734299271" className="flex-1 flex items-center justify-center gap-2 bg-dark hover:bg-gray-800 text-white font-bold py-3 px-4 rounded-xl transition duration-300 shadow-md">
+                  <PhoneCall size={20} /> Ligar Direto
+                </a>
+              </div>
             </div>
           </div>
-          
+
           {/* Right Column: Form */}
           <div className="bg-gray-50 p-8 rounded-2xl border border-gray-100">
-             <h3 className="text-2xl font-bold font-display text-dark mb-2">Solicitar Orçamento / Vistoria</h3>
-             <p className="text-gray-500 text-sm mb-8">Nossa equipe técnica fará uma triagem preliminar do seu projeto sem custos.</p>
-             <ContactForm />
+            <h3 className="text-2xl font-bold font-display text-dark mb-2">Solicitar Orçamento / Vistoria</h3>
+            <p className="text-gray-500 text-sm mb-8">Nossa equipe técnica fará uma triagem preliminar do seu projeto sem custos.</p>
+            <ContactForm />
           </div>
         </div>
 
         {/* Map Section */}
         <div className="mt-16 rounded-3xl overflow-hidden shadow-lg border border-gray-100">
-           <iframe 
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3574.653428255018!2d-48.8378875!3d-26.3697963!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94deaf7a58406797%3A0x44619a911a3b11d0!2sR.%20Walter%20Eichholz%2C%20545%20-%20Petr%C3%B3polis%2C%20Joinville%20-%20SC%2C%2089208-620!5e0!3m2!1spt-BR!2sbr!4v1622557889151!5m2!1spt-BR!2sbr" 
-                width="100%" 
-                height="450" 
-                style={{border: 0}} 
-                allowFullScreen={true} 
-                loading="lazy" 
-                referrerPolicy="no-referrer-when-downgrade"
-                title="Sede da Sáuria Consultoria Ambiental em Joinville, SC"
-            ></iframe>
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3574.653428255018!2d-48.8378875!3d-26.3697963!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94deaf7a58406797%3A0x44619a911a3b11d0!2sR.%20Walter%20Eichholz%2C%20545%20-%20Petr%C3%B3polis%2C%20Joinville%20-%20SC%2C%2089208-620!5e0!3m2!1spt-BR!2sbr!4v1622557889151!5m2!1spt-BR!2sbr"
+            width="100%"
+            height="450"
+            style={{ border: 0 }}
+            allowFullScreen={true}
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+            title="Sede da Sáuria Consultoria Ambiental em Joinville, SC"
+          ></iframe>
         </div>
       </div>
     </div>
