@@ -9,7 +9,7 @@ export const portfolioData = [
     description: "Condução integral do licenciamento ambiental (LP, LI) de um complexo eólico com mais de 30 aerogeradores. O projeto demandou articulação complexa devido à localização em área de altitude com vegetação endêmica.",
     challenge: "O principal desafio foi a sobreposição parcial da área de supressão vegetal com fragmentos de Floresta Ombrófila Mista (Mata com Araucárias) e o trânsito de avifauna migratória na crista da serra.",
     solution: "A Sáuria desenvolveu um EIA/RIMA robusto. Implementamos um monitoramento de fauna com bioacústica e geoprocessamento avançado para micro-siting dos aerogeradores, evitando áreas críticas de nidificação. O projeto foi aprovado sem condicionantes restritivas graves no IMA.",
-    imageUrl: "https://images.pexels.com/photos/414837/pexels-photo-414837.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+    imageUrl: "https://images.unsplash.com/photo-1466611653911-95282ee365d2?auto=format&fit=crop&q=80&w=1200"
   },
   {
     id: "resgate-arqueologico-linha-transmissao",
@@ -21,7 +21,7 @@ export const portfolioData = [
     description: "Serviço de arqueologia preventiva obrigatório para a instalação de uma Linha de Transmissão de 138kV que interceptava o perímetro de ocupação histórica do século XIX e prováveis sambaquis.",
     challenge: "O traçado linear de 45km tornava o licenciamento no IPHAN urgente, pois as obras não poderiam iniciar sem a portaria de autorização, além da suspeita de sítios arqueológicos não cadastrados nas áreas de praça de torres.",
     solution: "Realizamos o Projeto de Avaliação de Impacto ao Patrimônio Arqueológico (PAIPA) e o Relatório (RAIPA) em tempo recorde. Identificamos material lítico isolado, procedemos com o salvamento sistemático e implementamos o Programa de Educação Patrimonial nas comunidades vizinhas.",
-    imageUrl: "https://images.pexels.com/photos/2070033/pexels-photo-2070033.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+    imageUrl: "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&q=80&w=1200"
   },
   {
     id: "eiv-loteamento-residencial",
@@ -45,7 +45,7 @@ export const portfolioData = [
     description: "Levantamento primário da mastofauna, avifauna, herpetofauna e ictiofauna em um terreno de 150 hectares de Mata Atlântica secundária, visando o Estudo Ambiental Simplificado (EAS) para expansão fabril.",
     challenge: "A área adjacente fazia divisa com uma Unidade de Conservação (UC) de proteção integral, exigindo extrema precisão técnica e anuência do órgão gestor da UC para proceder com o licenciamento.",
     solution: "Nossos biólogos aplicaram campanhas sazonais rigorosas, utilizando armadilhas fotográficas e busca ativa. Foi elaborado um plano de afugentamento e resgate de fauna, garantindo a licença de supressão de vegetação ao lado do projeto de adequação da área de Reserva Legal.",
-    imageUrl: "https://images.unsplash.com/photo-1475809913362-28a064ce9492?auto=format&fit=crop&q=80&w=1260&h=750"
+    imageUrl: "https://images.unsplash.com/photo-1444464666168-49d633b867ad?auto=format&fit=crop&q=80&w=1200"
   },
   {
     id: "prad-mineradora",
@@ -57,6 +57,6 @@ export const portfolioData = [
     description: "Planejamento e execução de PRAD para fechamento de cava de extração de argila, estabilização de taludes e reintegração da paisagem.",
     challenge: "O solo exposto e extremamente compactado apresentava processos erosivos severos (voçorocas) e contaminação do lençol freático por carreamento de sedimentos.",
     solution: "Implantamos técnicas de bioengenharia de solos, retaludamento geométrico com bermas, drenagem superficial e plantio de espécies pioneiras fixadoras de nitrogênio. O monitoramento contínuo da Sáuria garantiu a reestruturação do solo em 24 meses, atingindo as metas do órgão competente.",
-    imageUrl: "https://images.pexels.com/photos/2800392/pexels-photo-2800392.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+    imageUrl: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&q=80&w=1200"
   }
 ];

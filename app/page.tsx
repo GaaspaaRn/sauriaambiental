@@ -92,9 +92,9 @@ export default function Home() {
             <div className="lg:col-span-4 relative hidden lg:block h-full">
               <div className="absolute inset-0 bg-primary translate-x-8 translate-y-8 z-0"></div>
               <img 
-                src="https://images.unsplash.com/photo-1555026903-8ed52b7ba1bd?auto=format&fit=crop&q=80&w=800"
-                alt="Operação ambiental e topografia" 
-                className="relative z-10 object-cover w-full h-[600px] grayscale hover:grayscale-0 transition-all duration-700"
+                src="https://images.unsplash.com/photo-1504450874802-0ba2bcd9b5ae?auto=format&fit=crop&q=80&w=1200"
+                alt="Sauria Ambiental - Consultoria Especializada" 
+                className="relative z-10 object-cover w-full h-[600px] grayscale hover:grayscale-0 transition-all duration-700 shadow-2xl"
               />
               <div className="absolute bottom-10 -left-24 z-30 bg-white p-6 border-l-4 border-primary shadow-2xl">
                  <div className="text-4xl font-black text-dark tracking-tighter">15+</div>

@@ -108,7 +108,7 @@ const Header: React.FC = () => {
         <div className="md:hidden bg-light shadow-2xl absolute top-full left-0 w-full border-b-[8px] border-primary h-screen overflow-y-auto pb-32">
           <nav className="flex flex-col pt-4">
             <Link href="/" className={`${mobileLinkClasses} ${pathname === '/' ? 'text-primary' : 'text-dark'}`}>Home</Link>
-            <Link href="/sobre" className={`${mobileLinkClasses} ${pathname === '/sobre' ? 'text-primary' : 'text-dark'}`}>O Dossiê</Link>
+            <Link href="/sobre" className={`${mobileLinkClasses} ${pathname === '/sobre' ? 'text-primary' : 'text-dark'}`}>Sobre</Link>
 
             <div className="bg-white border-y border-gray-200 py-4 my-2">
               <span className="block px-6 font-black text-gray-400 text-xs uppercase tracking-[0.2em] mb-4">
@@ -131,11 +131,11 @@ const Header: React.FC = () => {
               </div>
             </div>
 
-            <Link href="/portfolio" className={`${mobileLinkClasses} ${pathname === '/portfolio' ? 'text-primary' : 'text-dark'}`}>Auditorias</Link>
+            <Link href="/portfolio" className={`${mobileLinkClasses} ${pathname === '/portfolio' ? 'text-primary' : 'text-dark'}`}>Portfólio</Link>
 
             <div className="p-6 mt-8">
               <Link href="/contato" className="block w-full bg-primary text-white text-center font-bold py-5 text-sm uppercase tracking-widest transition-colors">
-                Iniciar Diagnóstico
+                Contato
               </Link>
             </div>
           </nav>
