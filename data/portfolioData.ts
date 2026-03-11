@@ -33,7 +33,7 @@ export const portfolioData = [
     description: "Elaboração de EIV para um empreendimento imobiliário horizontal de 800 lotes, avaliando as repercussões no tráfego, infraestrutura urbana e na dinâmica socioeconômica do município.",
     challenge: "A área encontrava-se em vetor de expansão urbana, gerando receio da comunidade local quanto ao colapso do sistema de drenagem pluvial e saturação do trânsito na via arterial principal.",
     solution: "A Sáuria conduziu modelagens de tráfego, estudo de capacidade de suporte de infraestrutura e desenvolveu um programa de medidas mitigatórias que incluiu a criação de bacias de retenção (piscinões) integradas a um parque linear público. O EIV foi fundamental para destravar a certidão de diretrizes municipais.",
-    imageUrl: "https://images.pexels.com/photos/17592231/pexels-photo-17592231/free-photo-of-predios-edificios-construcao-arquitetura.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+    imageUrl: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=1260&h=750"
   },
   {
     id: "inventario-fauna-fabrica",
@@ -45,7 +45,7 @@ export const portfolioData = [
     description: "Levantamento primário da mastofauna, avifauna, herpetofauna e ictiofauna em um terreno de 150 hectares de Mata Atlântica secundária, visando o Estudo Ambiental Simplificado (EAS) para expansão fabril.",
     challenge: "A área adjacente fazia divisa com uma Unidade de Conservação (UC) de proteção integral, exigindo extrema precisão técnica e anuência do órgão gestor da UC para proceder com o licenciamento.",
     solution: "Nossos biólogos aplicaram campanhas sazonais rigorosas, utilizando armadilhas fotográficas e busca ativa. Foi elaborado um plano de afugentamento e resgate de fauna, garantindo a licença de supressão de vegetação ao lado do projeto de adequação da área de Reserva Legal.",
-    imageUrl: "https://images.pexels.com/photos/5980/wildlife-birds-animal-nature.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+    imageUrl: "https://images.unsplash.com/photo-1475809913362-28a064ce9492?auto=format&fit=crop&q=80&w=1260&h=750"
   },
   {
     id: "prad-mineradora",

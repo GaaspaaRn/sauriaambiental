@@ -1,13 +1,12 @@
 import React from 'react';
 import Link from 'next/link';
-import { Facebook, Instagram, Linkedin, Mail, Phone, MapPin } from 'lucide-react';
+import { Facebook, Instagram, Mail, Phone, MapPin } from 'lucide-react';
 import { SauriaLogo } from './SauriaLogo';
 
 const Footer: React.FC = () => {
   const socialLinks = [
     { icon: Facebook, href: 'https://www.facebook.com/sauriaconsultoria', label: 'Facebook' },
     { icon: Instagram, href: 'https://www.instagram.com/sauriaconsultoria', label: 'Instagram' },
-    { icon: Linkedin, href: '#', label: 'LinkedIn' },
   ];
 
   const quickLinks = [

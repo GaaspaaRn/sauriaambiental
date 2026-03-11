@@ -31,7 +31,7 @@ const Header: React.FC = () => {
   const mobileLinkClasses = "block text-left py-4 px-6 text-lg tracking-wider hover:bg-gray-100 uppercase font-bold";
 
   return (
-    <header className={`fixed top-0 w-full z-50 transition-all duration-300 border-b ${isScrolled ? 'bg-white border-gray-200 shadow-sm py-2' : 'bg-white/95 backdrop-blur-md border-gray-100 py-4'}`}>
+    <header className={`fixed top-0 w-full z-50 transition-all duration-300 border-b ${isScrolled ? 'bg-white border-gray-200 shadow-sm py-1' : 'bg-white/95 backdrop-blur-md border-gray-100 py-2'}`}>
       <div className="container mx-auto px-6">
         <div className="flex justify-between items-center">
           <Link href="/" className="flex items-center gap-3 text-2xl font-black font-display text-dark uppercase tracking-tighter hover:text-primary transition-colors">
@@ -50,7 +50,7 @@ const Header: React.FC = () => {
 
             {/* Mega Menu Dropdown */}
             <div
-              className="relative group h-full py-4 -my-4 flex items-center"
+              className="relative group h-full py-2 -my-2 flex items-center"
               onMouseEnter={() => setIsServicesOpen(true)}
               onMouseLeave={() => setIsServicesOpen(false)}
             >

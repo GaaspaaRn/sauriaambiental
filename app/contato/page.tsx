@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 export default function Contact() {
   return (
     <div className="bg-light animate-fade-in-up">
-      <div className="container mx-auto px-6 py-16">
+      <div className="container mx-auto px-6 pt-32 pb-16">
         <div className="text-center mb-12">
           <h1 className="text-4xl md:text-5xl font-bold font-display text-dark"><b></b>Entre em Contato</h1>
           <p className="text-lg text-gray-600 mt-4 max-w-3xl mx-auto">
