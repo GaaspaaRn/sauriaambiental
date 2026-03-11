@@ -2,7 +2,7 @@ import React from 'react';
 import { notFound } from 'next/navigation';
 import { servicesData } from '@/data/servicesData';
 import { Metadata } from 'next';
-import { CheckCircle2, ShieldCheck, FileCheck2, Building2 } from 'lucide-react';
+import { CheckSquare, ShieldAlert, FileCheck2, Building2 } from 'lucide-react';
 import Link from 'next/link';
 
 // Static Params for Full SSG output
@@ -17,8 +17,8 @@ export async function generateMetadata({ params }: { params: { slug: string } })
   if (!service) return { title: 'Serviço Não Encontrado' };
 
   return {
-    title: `${service.title} em Joinville | Sáuria Consultoria Ambiental`,
-    description: `Precisando de ${service.title}? Atendemos em Santa Catarina com agilidade, expertise técnica e conformidade legal nos órgãos ambientais.`,
+    title: `${service.title} em SC | Escopo Técnico Sáuria Ambiental`,
+    description: `Memorial descritivo e viabilidade técnica para ${service.title}. Aprovamos empreendimentos complexos no IMA/SC (Joinville e região).`,
   };
 }
 
@@ -32,146 +32,167 @@ export default function ServiceDetail({ params }: { params: { slug: string } }) 
   const isFaunaFlora = ['inventario-de-fauna', 'inventario-florestal', 'sinaflor', 'emissao-de-dof'].includes(service.slug);
   
   const applicableSectors = isHighImpact 
-      ? ['Indústrias de Alta Complexidade', 'Usinas de Energia Renováveis', 'Macro Loteamentos Residenciais', 'Obras de Infraestrutura Rodoviária', 'Complexos Logísticos']
+      ? ['Instalações Industriais de Classe Avançada', 'Complexos Loteadores', 'Usinas e Linhas de Transmissão', 'Obras de Infraestrutura Modal']
       : isFaunaFlora
-      ? ['Desmatamentos e Supressão Vegetal', 'Implantação de Parques Energéticos', 'Agronegócio e Áreas de Reflorestamento', 'Obras Públicas', 'Condomínios em Áreas Nativas']
-      : ['Indústrias de Transformação', 'Construtoras Civis', 'Comércio de Grande Porte', 'Postos de Combustíveis', 'Setor Agrícola', 'Loteadoras'];
+      ? ['Supressão de Massa Vegetal Nativa', 'Corredores Ecológicos', 'Atividades Agrícolas Extensivas', 'Obras Várias Governamentais']
+      : ['Manufatura Leve e Pesada', 'Postos de Combustíveis e Revendas', 'Comércio Supermercadista', 'Clínicas e Hospitais'];
+
+  // GEO Schema Injection: Article + FAQPage
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Article",
+        "headline": `${service.title} em Santa Catarina`,
+        "description": service.shortDescription,
+        "author": {
+          "@type": "Organization",
+          "name": "Diretoria Técnica Sáuria Ambiental"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Sáuria Consultoria Ambiental",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://sauriaconsultoria.com.br/logo.png"
+          }
+        },
+        "datePublished": "2024-01-01T08:00:00+08:00",
+        "dateModified": new Date().toISOString()
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": `O que é ${service.title}?`,
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": `Procedimento administrativo obrigatório para mitigar os impactos de atividades industriais e da construção civil perante os órgãos de controle, como o IMA e IBAMA.`
+            }
+          },
+          {
+            "@type": "Question",
+            "name": `A Sáuria emite ART para este serviço?`,
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Sim. A Sáuria Consultoria Ambiental fornece toda a estrutura documental balizada pela emissão de Anotação de Responsabilidade Técnica (ART) por sua equipe própria."
+            }
+          }
+        ]
+      }
+    ]
+  };
 
   return (
-    <div className="bg-white animate-fade-in-up">
-      {/* SEO Optimized Hero Component */}
-      <section className="bg-dark text-white py-24 relative overflow-hidden">
-        <div className="absolute inset-0 bg-[url('https://images.pexels.com/photos/15286/pexels-photo.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2')] opacity-10 bg-cover bg-center"></div>
+    <div className="bg-white">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+
+      {/* Hero Component - Brutalist Tech */}
+      <section className="bg-dark text-white pt-32 pb-20 relative border-b-8 border-primary">
+        <div className="absolute top-0 left-0 w-full h-full bg-[url('https://images.pexels.com/photos/15286/pexels-photo.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2')] opacity-5 bg-cover bg-center mix-blend-screen grayscale"></div>
         <div className="container mx-auto px-6 relative z-10">
           <div className="max-w-4xl">
-            <div className="flex items-center gap-3 text-green-400 mb-6 font-bold uppercase tracking-widest text-sm">
-                <service.icon size={20} /> Experiência Técnica Sáuria
+            <div className="flex items-center gap-3 text-primary mb-8 font-mono uppercase tracking-[0.3em] text-xs font-bold border-l-2 border-primary pl-4">
+                <service.icon size={16} /> Documento Operacional Padrão
             </div>
-            <h1 className="text-4xl md:text-6xl font-bold font-display mb-6 leading-tight">
-              {service.title} em Joinville e Santa Catarina
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-black font-display mb-8 uppercase tracking-tighter leading-[0.9]">
+              {service.title}.
             </h1>
-            <p className="text-xl text-gray-300 font-light leading-relaxed max-w-3xl">
-              {service.shortDescription} Elaboramos todos os estudos técnicos e análises de viabilidade com nossa equipe multidisciplinar especializada para garantir a sua aprovação.
+            <p className="text-xl md:text-2xl text-gray-400 font-light leading-relaxed max-w-3xl">
+              {service.shortDescription}
             </p>
           </div>
         </div>
       </section>
 
-      {/* Main Structural Content (Rich SEO Content 800+ Words logic structured via rich paragraphs) */}
-      <section className="py-20">
+      {/* Main Content - Sharp Layout */}
+      <section className="py-24 bg-light">
         <div className="container mx-auto px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-16">
-            <div className="lg:col-span-2 space-y-16">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
+            
+            <div className="lg:col-span-8 space-y-20">
               
-              {/* Sec 1: O Que é */}
+              {/* Sec 1: Definição Técnica */}
               <article>
-                <div className="flex items-center gap-3 mb-6">
-                   <div className="bg-green-50 p-3 rounded-xl"><FileCheck2 className="text-primary w-6 h-6" /></div>
-                   <h2 className="text-3xl font-bold font-display text-dark">O que é o {service.title} e sua Importância</h2>
+                <div className="border-l-4 border-dark pl-6 mb-8">
+                   <h2 className="text-3xl font-black font-display text-dark uppercase tracking-wide">Escopo e Base Legal</h2>
                 </div>
-                <div className="prose prose-lg text-gray-700 leading-relaxed text-justify max-w-none">
-                  <p>
-                    O(a) <strong>{service.title}</strong> é uma etapa técnica obrigatória, regida pelo processo de análise de órgãos de controle e proteção do meio ambiente, cujo objetivo primordial é atestar o alinhamento das atividades industriais e da construção civil em face à legislação brasileira. Operações produtivas causam alterações inevitáveis; este serviço garante que as intervenções ocorram com total mitigação, protegendo os bens imateriais, a biodiversidade da Mata Atlântica e a organização socioespacial urbana.
-                  </p>
-                  <p>
-                    Trata-se de um arcabouço metodológico avançado que inclui relatórios em campo, processamento analítico com softwares de ponta em geoprocessamento, preenchimento das exigências operacionais nos sistemas oficiais e a consolidação de relatórios técnicos robustos para auditoria governamental e fiscal.
-                  </p>
+                <div className="prose prose-lg text-gray-700 font-light text-justify max-w-none">
+                  <p className="lead text-xl text-dark font-medium mb-6" dangerouslySetInnerHTML={{ __html: service.content?.whatIs || '' }} />
                 </div>
               </article>
 
-              {/* Sec 2: Quando é Necessário */}
-              <article>
-                <div className="flex items-center gap-3 mb-6">
-                   <div className="bg-red-50 p-3 rounded-xl"><ShieldCheck className="text-red-500 w-6 h-6" /></div>
-                   <h2 className="text-3xl font-bold font-display text-dark">Quando este estudo técnico é exigido legalmente?</h2>
-                </div>
-                <div className="prose prose-lg text-gray-700 leading-relaxed text-justify max-w-none">
-                  <p>
-                    A elaboração do {service.title} torna-se indispensável em transições cruciais do seu negócio, como: <strong>concepção inicial</strong> para avaliação de viabilidade do terreno, <strong>expansão de área construída ou fabril</strong> que configure aumento da capacidade poluidora, e durante os processos de renovação de licenças de operação (LO).
-                  </p>
-                  <p>
-                    Ignorar a necessidade desse trâmite resulta em notificações de órgãos como o <strong>Instituto do Meio Ambiente (IMA)</strong> de Santa Catarina, <strong>Polícia Militar Ambiental</strong> e Secretarias Municipais. Além da infração aplicável em pecúnia (multas altíssimas), a falta do laudo sujeita a empresa a embargos da obra, bloqueio de recursos financeiros e responsabilização pessoal dos diretores por crimes ambientais, conforme a Lei 9.605/98.
-                  </p>
+              {/* Sec 2: Gatilho Penal */}
+              <article className="bg-white border-2 border-red-900 p-10 relative">
+                <div className="absolute top-0 right-0 bg-red-900 text-white font-mono text-xs uppercase tracking-widest px-4 py-1">Aviso de Risco Legal</div>
+                <h2 className="text-2xl font-black font-display text-red-900 mb-6 uppercase tracking-tight flex items-center gap-3">
+                  <ShieldAlert className="w-8 h-8" /> Exigibilidade e Infrações
+                </h2>
+                <div className="text-red-950 font-light leading-relaxed text-justify space-y-4">
+                  <p dangerouslySetInnerHTML={{ __html: service.content?.whenNeeded || '' }} />
                 </div>
               </article>
 
-              {/* Sec 3: Como funciona o processo */}
+              {/* Sec 3: Metodologia de Execução */}
               <article>
-                <h2 className="text-3xl font-bold font-display text-dark mb-8">Etapas Executivas: Como nosso time conduz o processo</h2>
-                <div className="space-y-6">
-                  {[
-                    { title: "Diagnóstico e Viabilidade", desc: "Varredura inicial nos Planos Diretores Municipais, zoneamentos e legislações vigentes. Emissão da viabilidade locacional sem sobressaltos jurídicos." },
-                    { title: "Elaboração Multidisciplinar Própria", desc: `Utilização de engenheiros, biólogos, e analistas cartográficos da nossa equipe para coleta de dados primários e modelagem preditiva de impactos voltada exclusivamente para o(a) ${service.title}.` },
-                    { title: "Protocolo e Transparência de Dados", desc: "Abertura dos processos diretamente nas plataformas digitais dos órgãos, entregando os estudos acompanhados das Anotações de Responsabilidade Técnica (ARTs)." },
-                    { title: "Acompanhamento no Órgão Emissor", desc: "Interface diária com os analistas técnicos do governo para defesa de teses, ajustes do plano mitigatório e agilidade histórica no deferimento da portaria." },
-                  ].map((step, idx) => (
-                    <div key={idx} className="flex gap-6 p-6 bg-white border border-gray-100 rounded-2xl shadow-sm">
-                       <div className="bg-primary text-white font-bold w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0">
-                         {idx + 1}
+                 <h2 className="text-3xl font-black font-display text-dark mb-10 uppercase tracking-wide border-b-2 border-dark pb-4">
+                   Deployment do Processo
+                 </h2>
+                <div className="space-y-4">
+                  {(service.content?.steps || []).map((step, idx) => (
+                    <div key={idx} className="flex flex-col sm:flex-row gap-6 p-8 bg-white border border-gray-200 hover:border-dark transition-colors">
+                       <div className="font-mono text-4xl text-gray-200 font-bold leading-none">
+                         {String(idx + 1).padStart(2, '0')}
                        </div>
                        <div>
-                         <h3 className="text-xl font-bold text-gray-800 mb-2">{step.title}</h3>
-                         <p className="text-gray-600">{step.desc}</p>
+                         <h3 className="text-lg font-black text-dark uppercase tracking-widest mb-2">{step.title}</h3>
+                         <p className="text-gray-600 font-light text-sm">{step.desc}</p>
                        </div>
                     </div>
                   ))}
                 </div>
               </article>
 
-              {/* Sec 4: Por que a Sauria */}
-              <article className="bg-green-50 p-10 rounded-3xl border border-green-100">
-                <h2 className="text-3xl font-bold font-display text-primary mb-6">Por que escolher a Sáuria Consultoria?</h2>
-                <p className="text-gray-700 leading-relaxed text-lg mb-8">
-                  Diferente de escritórios genéricos que terceirizam a execução das campanhas de campo para o {service.title}, a Sáuria possui equipe multidisciplinar alocada em nossa sede em <strong>Joinville - Região Norte de Santa Catarina</strong>, garantindo atuação orgânica nos vetores industriais, litorâneos e de serra.
-                </p>
-                <ul className="grid sm:grid-cols-2 gap-4">
-                  {[
-                    'Especialistas no IMA / IBAMA',
-                    'Acompanhamento de TAC',
-                    'Engenharia Preventiva',
-                    'Zero Terceirização Técnica',
-                  ].map((benefit, i) => (
-                    <li key={i} className="flex items-center gap-3 text-gray-800 font-bold bg-white p-4 rounded-xl shadow-sm">
-                      <CheckCircle2 className="text-primary w-5 h-5" /> {benefit}
-                    </li>
-                  ))}
-                </ul>
-              </article>
             </div>
 
-            {/* Sticky Sidebar */}
-            <div className="lg:col-span-1">
+            {/* Sticky Sidebar - High Conversion Tech Spec */}
+            <div className="lg:col-span-4">
               <div className="sticky top-32 space-y-8">
                 
-                {/* Target Audience Card */}
-                <div className="bg-white rounded-3xl p-8 border border-gray-100 shadow-xl">
-                  <div className="flex items-center gap-3 mb-6 border-b border-gray-100 pb-4">
-                    <Building2 className="text-primary w-8 h-8"/>
-                    <h3 className="text-xl font-bold font-display text-dark">Para quem destinamos este serviço?</h3>
+                {/* Specs Box */}
+                <div className="bg-white border-2 border-dark p-8 shadow-[8px_8px_0px_#111]">
+                  <div className="flex items-center gap-3 mb-8 border-b border-dark pb-4">
+                    <Building2 className="text-dark w-8 h-8"/>
+                    <h3 className="text-lg font-black text-dark uppercase tracking-tight">Perfis de Aplicação</h3>
                   </div>
-                  <ul className="space-y-4">
+                  <ul className="space-y-3 font-mono text-xs uppercase tracking-wide text-gray-600">
                     {applicableSectors.map((sector, idx) => (
-                       <li key={idx} className="flex items-start gap-3 text-gray-600">
-                         <div className="w-2 h-2 rounded-full bg-green-400 mt-2"></div>
-                         <span className="font-medium text-sm leading-tight">{sector}</span>
+                       <li key={idx} className="flex items-start gap-3">
+                         <span className="text-primary mt-0.5">■</span>
+                         <span className="leading-tight">{sector}</span>
                        </li>
                     ))}
                   </ul>
                 </div>
 
-                {/* Conversion CTA Card */}
-                <div className="bg-dark rounded-3xl p-8 shadow-2xl text-white text-center">
-                   <h3 className="text-2xl font-bold mb-4">Atrase seu Concorrente, não a sua Obra.</h3>
-                   <p className="text-gray-400 text-sm mb-8 leading-relaxed">
-                     Processos de licenciamento em Santa Catarina demoram meses caso haja pendências técnicas nos anexos. Solicite o termo de referência detalhado da Sáuria e emita a portaria o mais rápido possível.
+                {/* Hard CTA */}
+                <div className="bg-primary p-8 border-4 border-dark text-white">
+                   <h3 className="text-2xl font-black mb-4 uppercase tracking-tighter">O Relógio da Obra não Espera.</h3>
+                   <p className="text-dark font-medium text-sm mb-8 leading-relaxed">
+                     Cada semana sem homologação corrói sua margem de lucro operacional. Convoque nossa diretoria para estabelecer o roteiro da legalização hoje.
                    </p>
-                   <Link href="/contato" className="block w-full bg-primary hover:bg-green-600 text-white font-bold py-4 px-6 rounded-xl transition duration-300 shadow-md">
-                     Falar com Especialista Agora
+                   <Link href="/contato" className="block w-full bg-dark hover:bg-white text-white hover:text-dark border-2 border-dark text-center font-black py-4 text-xs uppercase tracking-widest transition-colors shadow-lg">
+                     Reunião Tática Imediata
                    </Link>
                 </div>
 
               </div>
             </div>
+            
           </div>
         </div>
       </section>

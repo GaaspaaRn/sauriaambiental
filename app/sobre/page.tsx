@@ -3,82 +3,149 @@ import { ShieldCheck, Lightbulb, Users, FileCheck2, MapPin, GraduationCap } from
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Sobre a Empresa | Sáuria Consultoria Ambiental em Joinville',
-  description: 'Conheça a Sáuria Consultoria Ambiental. Equipe multidisciplinar especializada em licenciamento ambiental, EIA/RIMA, fauna, flora e arqueologia em Santa Catarina.',
+  title: 'O Dossiê: Autoridade e Capacidade | Sáuria Joinville',
+  description: 'Conheça o corpo técnico da Sáuria Consultoria Ambiental. Especialistas em Engenharia Ambiental, EIA/RIMA, fauna, flora e arqueologia em SC.',
 };
 
 export default function About() {
+  
+  // E-E-A-T Schema Injection (Organization / AboutPage)
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "name": "Sáuria Consultoria Ambiental",
+        "url": "https://sauriaconsultoria.com.br",
+        "logo": "https://sauriaconsultoria.com.br/logo.png",
+        "foundingDate": "2010-01-01",
+        "founders": [
+          {
+            "@type": "Person",
+            "name": "Corpo de Engenharia Diretiva"
+          }
+        ],
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Joinville",
+          "addressRegion": "SC",
+          "addressCountry": "BR"
+        }
+      },
+      {
+        "@type": "AboutPage",
+        "mainEntityOfPage": {
+          "@type": "WebPage",
+          "@id": "https://sauriaconsultoria.com.br/sobre"
+        },
+        "author": {
+          "@type": "Organization",
+          "name": "Equipe Técnica Multidisciplinar Sáuria"
+        },
+        "dateModified": new Date().toISOString()
+      }
+    ]
+  };
+
   return (
-    <div className="bg-white animate-fade-in-up">
-      {/* Hero Sobre */}
-      <section className="bg-dark text-white py-20 relative overflow-hidden">
-        <div className="absolute inset-0 bg-[url('https://images.pexels.com/photos/1072824/pexels-photo-1072824.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2')] opacity-20 bg-cover bg-center mix-blend-overlay"></div>
-        <div className="container mx-auto px-6 relative z-10 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold font-display mb-4">Sobre a Sáuria Consultoria Ambiental</h1>
-          <p className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto font-light">
-            Sólida experiência técnica aprovando projetos imobiliários, indústrias e infraestrutura nos órgãos ambientais de Santa Catarina.
-          </p>
+    <div className="bg-light pt-24 pb-12">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+
+      {/* Hero Dossiê - Brutalist Block */}
+      <section className="container mx-auto px-6 mb-24 mt-12">
+        <div className="bg-dark text-white border-l-8 border-primary p-12 lg:p-24 relative overflow-hidden">
+          <div className="absolute top-0 right-0 w-1/2 h-full bg-[url('https://images.pexels.com/photos/1072824/pexels-photo-1072824.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2')] bg-cover bg-center mix-blend-overlay opacity-30 grayscale saturate-0"></div>
+          <div className="relative z-10 max-w-2xl">
+            <span className="text-primary font-mono text-sm uppercase tracking-[0.3em] font-bold block mb-4">Registro Público</span>
+            <h1 className="text-5xl md:text-7xl font-black font-display uppercase tracking-tighter mb-8 leading-none">
+              O Dossiê<br/> <span className="text-gray-400">Técnico.</span>
+            </h1>
+            <p className="text-xl md:text-2xl text-gray-300 font-light border-l border-gray-600 pl-6 leading-relaxed">
+              Engenharia, biologia e inteligência geográfica a serviço da aprovação de empreendimentos complexos em Santa Catarina.
+            </p>
+          </div>
         </div>
       </section>
 
-      <div className="container mx-auto px-6 py-16">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-20">
-          <div>
-            <span className="text-primary font-bold uppercase tracking-widest text-sm mb-2 block">Nossa História</span>
-            <h2 className="text-3xl font-bold font-display text-dark mb-6">Compromisso com o Desenvolvimento e a Legislação Legal</h2>
-            <p className="text-gray-700 leading-relaxed mb-4 text-justify">
-              Sediada estrategicamente em <strong>Joinville - Santa Catarina</strong>, a Sáuria Consultoria Ambiental atua em todo o sul do Brasil oferecendo suporte completo para o seu empreendimento. Nascemos da necessidade do mercado por uma consultoria que entende o tempo do empreendedor e a complexidade dos órgãos ambientais, como o IMA, IBAMA e órgãos municipais.
-            </p>
-            <p className="text-gray-700 leading-relaxed text-justify mb-6">
-              Nosso diferencial é a <strong>inteligência preventiva</strong>. Não apenas elaboramos o <em>EIA/RIMA</em>, <em>EIV</em> ou o <em>Licenciamento Ambiental (LP, LI, LO)</em>, mas desenhamos a viabilidade ambiental desde a planta, evitando surpresas, minimizando custos de mitigação e acelerando a emissão das licenças necessárias para construtoras, agronegócio e loteamentos.
-            </p>
+      {/* Asymmetric History/Competence (Overlapping Layers, breaking 50/50 safe harbor) */}
+      <section className="container mx-auto px-6 pb-32">
+        <div className="relative">
+          {/* Main Text Block */}
+          <div className="bg-white border-4 border-dark p-10 md:p-16 lg:w-2/3 relative z-10 lg:translate-x-12">
+            <h2 className="text-3xl md:text-5xl font-black font-display text-dark mb-10 uppercase tracking-tight">Estatuto de<br/> Conformidade Legal</h2>
             
-            <div className="flex gap-4 items-center p-4 bg-green-50 rounded-xl border border-green-100">
-              <MapPin className="text-primary w-8 h-8 flex-shrink-0" />
-              <p className="text-sm text-gray-800 font-medium">Atendimento presencial em Joinville e atuação técnica deferida em todo o território catarinense e região Sul.</p>
+            <div className="space-y-6 text-lg text-gray-700 font-light text-justify leading-relaxed">
+              <p>
+                Sediada estrategicamente em <strong>Joinville - Santa Catarina</strong>, a Sáuria atua preventivamente para evitar embargos, suspensões ou multas do IMA e IBAMA. Nascemos da necessidade da indústria civil e do agronegócio por um licenciamento que fosse célere, porém com fundamentação metodológica inquestionável.
+              </p>
+              <p>
+                A nossa assinatura técnica garante que o <em>EIA/RIMA</em> civil ou a emissão de <em>LP/LI/LO</em> não sejam obstáculos, mas atestados de blindagem jurídica perante fiscalizações do Ministério Público.
+              </p>
+              <div className="mt-10 p-6 bg-dark text-white border-l-4 border-primary">
+                 <div className="flex items-start gap-4">
+                   <ShieldCheck className="w-8 h-8 text-primary flex-shrink-0" />
+                   <p className="font-mono text-sm leading-relaxed text-gray-300">
+                     O rigor não é opcional. Assinamos ARTs para projetos que demandam alta complexidade técnica e capacidade operacional.
+                   </p>
+                 </div>
+              </div>
             </div>
           </div>
-          <div className="rounded-2xl overflow-hidden shadow-2xl relative">
-            <div className="absolute inset-0 bg-primary/10 mix-blend-multiply"></div>
-            <img src="https://images.pexels.com/photos/7745564/pexels-photo-7745564.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Engenheiros da Sáuria Consultoria Ambiental realizando avaliação técnica em campo para licenciamento." className="w-full h-full object-cover" />
+          
+          {/* Overlapping Image Block */}
+          <div className="hidden lg:block absolute top-24 right-0 w-5/12 h-[110%] z-0 border border-gray-200 bg-gray-100 pb-10 pr-10">
+            <img 
+              src="https://images.pexels.com/photos/7745564/pexels-photo-7745564.jpeg?auto=compress&cs=tinysrgb&w=800" 
+              alt="Mesa técnica com plantas e estudo ambiental Sáuria" 
+              className="w-full h-full object-cover filter grayscale hover:grayscale-0 transition-all duration-700 shadow-2xl translate-x-10 translate-y-10" 
+            />
           </div>
         </div>
-        
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold font-display text-dark">Nosso Diferencial Técnico</h2>
-          <p className="text-gray-600 mt-4 max-w-2xl mx-auto">Por que grandes empresas confiam o licenciamento de suas obras à Sáuria.</p>
-        </div>
+      </section>
+      
+      {/* Competence Matrix - Grid 3 cols brutalist */}
+      <section className="bg-gray-100 py-32 border-t border-gray-300">
+        <div className="container mx-auto px-6">
+          <div className="mb-20">
+            <h2 className="text-4xl md:text-5xl font-black font-display text-dark uppercase tracking-tighter">Matriz de Excelência</h2>
+            <div className="w-24 h-2 bg-primary mt-6"></div>
+          </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
-          <div className="p-8 bg-white border border-gray-100 rounded-2xl shadow-lg hover:shadow-xl transition-shadow">
-            <div className="flex justify-start mb-6">
-                <div className="bg-green-50 p-4 rounded-2xl">
-                    <GraduationCap className="w-8 h-8 text-primary"/>
-                </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-0 border-4 border-dark bg-dark">
+            
+            {/* Cell 1 */}
+            <div className="p-12 bg-white border-b md:border-b-0 md:border-r border-gray-300 hover:bg-gray-50 transition-colors group">
+              <GraduationCap className="w-12 h-12 text-dark mb-8 group-hover:text-primary transition-colors" strokeWidth={1.5} />
+              <h3 className="text-2xl font-black font-display mb-4 text-dark uppercase tracking-wide leading-tight">Carga Técnica Multidisciplinar</h3>
+              <p className="text-gray-600 font-light leading-relaxed">
+                Biologia de conservação, Arqueologia resguardada e Engenharia mapeada. Absorvemos a responsabilidade do início ao fim, sem subcontratações paralelas que fragmentam o risco.
+              </p>
             </div>
-            <h3 className="text-xl font-bold font-display mb-3 text-gray-800">Equipe Multidisciplinar Própria</h3>
-            <p className="text-gray-600 leading-relaxed">Não terceirizamos responsabilidade. Contamos com engenheiros ambientais, biólogos especialistas em fauna e flora, geógrafos e arqueólogos no nosso corpo técnico.</p>
-          </div>
-          <div className="p-8 bg-white border border-gray-100 rounded-2xl shadow-lg hover:shadow-xl transition-shadow">
-            <div className="flex justify-start mb-6">
-                <div className="bg-green-50 p-4 rounded-2xl">
-                    <FileCheck2 className="w-8 h-8 text-primary"/>
-                </div>
+            
+            {/* Cell 2 */}
+            <div className="p-12 bg-white border-b md:border-b-0 md:border-r border-gray-300 hover:bg-gray-50 transition-colors group">
+              <FileCheck2 className="w-12 h-12 text-dark mb-8 group-hover:text-primary transition-colors" strokeWidth={1.5} />
+              <h3 className="text-2xl font-black font-display mb-4 text-dark uppercase tracking-wide leading-tight">Rigor Normativo Conama</h3>
+              <p className="text-gray-600 font-light leading-relaxed">
+                Nossos memoriais descritivos, RAPs e estudos populacionais são formatados com base estrita nos regulamentos ativos do IMA/SC, eliminando retrabalhos documentais.
+              </p>
             </div>
-            <h3 className="text-xl font-bold font-display mb-3 text-gray-800">Rigor Regulatório</h3>
-            <p className="text-gray-600 leading-relaxed">Nossos relatórios (EIV, EAS, RAP) seguem rigorosamente os Manuais de Orientação do IMA/SC e normas do CONAMA, evitando devoluções e atrasos processuais.</p>
-          </div>
-          <div className="p-8 bg-white border border-gray-100 rounded-2xl shadow-lg hover:shadow-xl transition-shadow">
-            <div className="flex justify-start mb-6">
-                <div className="bg-green-50 p-4 rounded-2xl">
-                    <Lightbulb className="w-8 h-8 text-primary"/>
-                </div>
+            
+            {/* Cell 3 */}
+            <div className="p-12 bg-white hover:bg-gray-50 transition-colors group">
+              <Lightbulb className="w-12 h-12 text-dark mb-8 group-hover:text-primary transition-colors" strokeWidth={1.5} />
+              <h3 className="text-2xl font-black font-display mb-4 text-dark uppercase tracking-wide leading-tight">Topografia Sistemática</h3>
+              <p className="text-gray-600 font-light leading-relaxed">
+                Ferramentas de Sistemas de Informação Geográfica (SIG) atestam os polígonos de supressão e APPs com margem de erro milimétrica, parametrizando o cadastro oficial.
+              </p>
             </div>
-            <h3 className="text-xl font-bold font-display mb-3 text-gray-800">Geoprocessamento Avançado</h3>
-            <p className="text-gray-600 leading-relaxed">Utilizamos tecnologias de ponta em Inteligência Geográfica para mapeamento de APPs e diagnóstico espacial, dando precisão inquestionável aos seus projetos.</p>
+
           </div>
         </div>
-      </div>
+      </section>
     </div>
   );
 }

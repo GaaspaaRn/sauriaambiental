@@ -1,146 +1,205 @@
 import React from 'react';
 import Link from 'next/link';
 import { servicesData } from '@/data/servicesData';
-import { Award, Target, Users, CheckCircle2 } from 'lucide-react';
+import { ArrowRight, Globe, Shield, Activity, Code } from 'lucide-react';
 
 export default function Home() {
   const featuredServices = servicesData.slice(0, 6);
 
+  // GEO & AEO Schema Injection
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "LocalBusiness",
+        "name": "Sáuria Consultoria Ambiental",
+        "image": "https://sauriaconsultoria.com.br/logo.png",
+        "@id": "https://sauriaconsultoria.com.br",
+        "url": "https://sauriaconsultoria.com.br",
+        "telephone": "+554700000000",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Rua Exemplo, 123",
+          "addressLocality": "Joinville",
+          "addressRegion": "SC",
+          "postalCode": "89200-000",
+          "addressCountry": "BR"
+        },
+        "description": "Consultoria Ambiental, Cultural e Arqueológica em Joinville/SC especializada em licenciamento de alta complexidade."
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "O que é Licenciamento Ambiental?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "É o procedimento administrativo pelo qual o órgão ambiental competente licencia a localização, instalação, ampliação e a operação de empreendimentos e atividades utilizadoras de recursos ambientais."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Atendem apenas Joinville?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Não. A Sáuria atua em Joinville e em toda a região do estado de Santa Catarina, atendendo indústrias, loteamentos e infraestrutura."
+            }
+          }
+        ]
+      }
+    ]
+  };
+
   return (
-    <div className="animate-fade-in-up">
-      {/* Hero Section - SEO Optimized */}
-      <section 
-        className="relative h-[80vh] min-h-[550px] flex items-center justify-center text-white text-center bg-cover bg-center" 
-        style={{ backgroundImage: `url('https://images.pexels.com/photos/2317904/pexels-photo-2317904.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2')` }}
-      >
-        <div className="absolute inset-0 bg-black/65"></div>
-        <div className="relative z-10 p-6 max-w-4xl mx-auto mt-12">
-          <span className="inline-block py-1 px-3 rounded-full bg-primary/80 text-sm font-semibold tracking-wider mb-4 border border-white/20">
-            ESPECIALISTAS EM MEIO AMBIENTE
-          </span>
-          <h1 className="text-4xl md:text-6xl font-bold font-display mb-6 tracking-tight leading-tight">
-            Consultoria Ambiental em Joinville e Santa Catarina
-          </h1>
-          <p className="text-lg md:text-xl mb-10 font-light max-w-2xl mx-auto text-gray-200">
-            Aprovamos seu licenciamento ambiental com agilidade técnica, segurança jurídica e estratégias para construtoras, indústrias e loteadoras.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/contato" className="bg-primary hover:bg-primary-dark text-white font-bold py-4 px-8 rounded-full text-lg transition duration-300 shadow-xl transform hover:-translate-y-1">
-              Falar com um Consultor
-            </Link>
-            <Link href="/servicos" className="bg-white/10 backdrop-blur-md border border-white/30 hover:bg-white/20 text-white font-bold py-4 px-8 rounded-full text-lg transition duration-300">
-              Ver Todos os Serviços
-            </Link>
+    <div className="bg-light relative">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+
+      {/* Hero Section - Radical Asymmetry & Brutalism */}
+      <section className="relative min-h-[90vh] flex items-center pt-24 pb-12 overflow-hidden bg-white">
+        <div className="container mx-auto px-6 relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            
+            <div className="lg:col-span-8 z-20">
+              <div className="inline-block bg-primary text-white text-xs font-bold uppercase tracking-[0.2em] py-2 px-4 mb-8 border-l-4 border-dark">
+                SC • Engenharia & Arqueologia
+              </div>
+              
+              <h1 className="text-5xl md:text-7xl lg:text-8xl font-black font-display text-dark tracking-tighter leading-[0.9] mb-8 uppercase">
+                Aprovação <br/>
+                <span className="text-primary block mt-2">Ambiental</span>
+                <span className="text-gray-300">Acelerada.</span>
+              </h1>
+              
+              <p className="text-xl md:text-2xl text-gray-600 max-w-2xl font-light leading-relaxed mb-12 border-l-2 border-gray-200 pl-6">
+                Consultoria de alta performance em <strong>Joinville e Santa Catarina</strong>. Destravamos empreendimentos complexos através de rigor técnico e inteligência regulatória junto ao IMA, IBAMA e IPHAN.
+              </p>
+              
+              <div className="flex flex-col sm:flex-row gap-6">
+                <Link href="/contato" className="group bg-dark hover:bg-black text-white px-8 py-5 text-lg font-bold uppercase tracking-wide transition-all duration-300 flex items-center justify-between border border-dark">
+                  Falar com Engenheiro
+                  <ArrowRight className="w-5 h-5 ml-4 group-hover:translate-x-2 transition-transform" />
+                </Link>
+                <Link href="/servicos" className="group bg-white hover:bg-gray-50 text-dark px-8 py-5 text-lg font-bold uppercase tracking-wide transition-all border border-gray-300 flex items-center justify-between">
+                  Escopo Técnico
+                </Link>
+              </div>
+            </div>
+
+            <div className="lg:col-span-4 relative hidden lg:block h-full">
+              <div className="absolute inset-0 bg-primary translate-x-8 translate-y-8 z-0"></div>
+              <img 
+                src="https://images.pexels.com/photos/2317904/pexels-photo-2317904.jpeg?auto=compress&cs=tinysrgb&w=800" 
+                alt="Operação ambiental e topografia" 
+                className="relative z-10 object-cover w-full h-[600px] grayscale hover:grayscale-0 transition-all duration-700"
+              />
+              <div className="absolute bottom-10 -left-24 z-30 bg-white p-6 border-l-4 border-primary shadow-2xl">
+                 <div className="text-4xl font-black text-dark tracking-tighter">15+</div>
+                 <div className="text-sm font-bold text-gray-500 uppercase tracking-widest">Anos de Validação</div>
+              </div>
+            </div>
+
           </div>
         </div>
       </section>
 
-      {/* Authority Section (SEO Content) */}
-      <section className="py-16 bg-white border-b border-gray-100">
+      {/* Manifesto / Authority - Typographic Focus, No Bento Grids */}
+      <section className="py-32 bg-dark text-white border-t-8 border-primary">
         <div className="container mx-auto px-6">
-          <div className="flex flex-col md:flex-row items-center gap-12">
-            <div className="md:w-1/2">
-               <h2 className="text-3xl font-bold font-display text-dark mb-6">
-                 Agilidade e Segurança no Licenciamento Ambiental
-               </h2>
-               <p className="text-gray-700 leading-relaxed mb-6 text-lg">
-                 Para empreendimentos em Santa Catarina, atrasos no licenciamento significam perda de dinheiro. A Sáuria atua diretamente com os órgãos ambientais (IMA, IBAMA, IPHAN) elaborando <strong>Estudos de Impacto (EIA/RIMA)</strong>, <strong>EIV</strong> e o <strong>licenciamento ambiental para a indústria</strong> com rigor técnico.
-               </p>
-               <ul className="space-y-3 mb-8">
-                 {[
-                   'Aprovação Rápida de Projetos Imobiliários e Industriais',
-                   'Conformidade Legal com Órgãos Ambientais de SC',
-                   'Prevenção de Multas e Passivos Ambientais',
-                   'Equipe Multidisciplinar (Biólogos, Engenheiros e Arqueólogos)'
-                 ].map((item, i) => (
-                   <li key={i} className="flex items-center gap-3 text-gray-800 font-medium">
-                     <CheckCircle2 className="text-primary w-6 h-6 flex-shrink-0" />
-                     {item}
-                   </li>
-                 ))}
-               </ul>
-            </div>
-            <div className="md:w-1/2">
-               <img 
-                 src="https://images.pexels.com/photos/3184611/pexels-photo-3184611.jpeg?auto=compress&cs=tinysrgb&w=800" 
-                 alt="Equipe técnica da Sáuria discutindo plano de gestão de resíduos" 
-                 className="rounded-2xl shadow-xl border border-gray-100"
-               />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Featured Services Section */}
-      <section className="py-20 bg-light">
-        <div className="container mx-auto px-6">
-          <div className="text-center mb-16">
-            <span className="text-primary font-bold uppercase tracking-widest text-sm mb-2 block">Nossa Expertise</span>
-            <h2 className="text-3xl md:text-5xl font-bold font-display text-dark">Soluções Ambientais</h2>
-            <p className="text-lg text-gray-600 mt-4 max-w-2xl mx-auto">
-              Seja para obter a sua Licença Prévia ou realizar o resgate de fauna, nós temos o estudo ambiental ideal.
+          <div className="max-w-4xl">
+            <h2 className="text-2xl md:text-3xl text-primary font-bold mb-6 font-mono uppercase tracking-widest">
+              [ O Dossiê Sáuria ]
+            </h2>
+            <p className="text-3xl md:text-5xl font-light leading-tight tracking-tight mb-16 text-gray-300">
+              Licenciamento não é despachante. É <strong className="text-white font-bold block mt-2">Engenharia de Risco.</strong>
             </p>
           </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-y-12 gap-x-16 border-t border-gray-800 pt-16 mt-8">
+            <div>
+              <Shield className="w-12 h-12 text-primary mb-6" />
+              <h3 className="text-2xl font-bold mb-4">Blindagem Jurídica</h3>
+              <p className="text-gray-400 leading-relaxed font-light">
+                Estudos de Impacto (EIA/RIMA) blindados contra contestações do Ministério Público. Fundamentação científica irrefutável.
+              </p>
+            </div>
+            <div>
+              <Activity className="w-12 h-12 text-primary mb-6" />
+              <h3 className="text-2xl font-bold mb-4">Diligência Tática</h3>
+              <p className="text-gray-400 leading-relaxed font-light">
+                Aprovação de loteamentos, EIVs e licenciamento industrial no IMA de Santa Catarina sem vai_e_vem burocrático.
+              </p>
+            </div>
+            <div>
+              <Globe className="w-12 h-12 text-primary mb-6" />
+              <h3 className="text-2xl font-bold mb-4">Gestão Plena</h3>
+              <p className="text-gray-400 leading-relaxed font-light">
+                De inventários de fauna a resgates arqueológicos, absorvemos a totalidade do plano de controle ambiental.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Services Hub - Sharp Geometric Layout */}
+      <section className="py-32 bg-gray-50">
+        <div className="container mx-auto px-6">
+          <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-20 border-b border-gray-200 pb-10">
+            <div>
+              <h2 className="text-4xl md:text-6xl font-black font-display text-dark uppercase tracking-tighter">
+                Matriz de<br/>
+                <span className="text-primary leading-[0.8] inline-block mt-2">Serviços</span>
+              </h2>
+            </div>
+            <div className="mt-8 md:mt-0">
+               <Link href="/servicos" className="text-lg font-bold border-b-2 border-dark pb-1 hover:text-primary hover:border-primary transition-colors uppercase tracking-wider">
+                 Catálogo Técnico Completo ↘
+               </Link>
+            </div>
+          </div>
+
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {featuredServices.map(service => (
-              <div key={service.id} className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 border border-transparent hover:border-green-100 group">
-                <div className="flex items-center justify-center h-16 w-16 rounded-2xl bg-green-50 text-primary mb-6 group-hover:bg-primary group-hover:text-white transition-colors duration-300">
-                  <service.icon className="w-8 h-8" />
+            {featuredServices.map((service, idx) => (
+              <div key={service.id} className="group bg-white border border-gray-200 p-10 hover:border-primary transition-all duration-300 flex flex-col justify-between h-[380px] hover:shadow-2xl">
+                <div>
+                  <div className="flex justify-between items-start mb-8">
+                    <service.icon className="w-10 h-10 text-primary" strokeWidth={1.5} />
+                    <span className="text-gray-300 font-mono text-sm leading-none">0{idx + 1}</span>
+                  </div>
+                  <h3 className="text-2xl font-bold text-dark mb-4 leading-tight group-hover:text-primary transition-colors">
+                    {service.title}
+                  </h3>
+                  <p className="text-gray-600 font-light text-sm leading-relaxed line-clamp-4 text-balance">
+                    {service.shortDescription}
+                  </p>
                 </div>
-                <h3 className="text-xl font-bold font-display mb-3 text-gray-800 group-hover:text-primary transition-colors">{service.title}</h3>
-                <p className="text-gray-600 mb-6 leading-relaxed h-20">{service.shortDescription}</p>
-                <Link href={`/servicos/${service.slug}`} className="inline-flex items-center font-bold text-primary hover:text-primary-dark transition-colors duration-300">
-                  Ver Detalhes do Serviço <span className="ml-2 group-hover:translate-x-1 transition-transform">→</span>
+                <Link href={`/servicos/${service.slug}`} className="mt-auto mt-8 flex items-center text-sm font-bold uppercase tracking-widest text-dark group-hover:text-primary transition-colors">
+                  Acessar Documentação <ArrowRight className="w-4 h-4 ml-2" />
                 </Link>
               </div>
             ))}
           </div>
-          <div className="text-center mt-12">
-            <Link href="/servicos" className="inline-block border-2 border-primary text-primary font-bold py-3 px-8 rounded-full text-lg hover:bg-primary hover:text-white transition duration-300">
-              Visualizar Todos os {servicesData.length} Serviços
-            </Link>
-          </div>
         </div>
       </section>
 
-      {/* SEO Regional Content Section */}
-      <section className="py-20 bg-dark text-white relative overflow-hidden">
-        <div className="absolute top-0 left-0 w-full h-full opacity-10 bg-[url('https://images.pexels.com/photos/15286/pexels-photo.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2')] bg-cover bg-center mix-blend-overlay"></div>
-        <div className="container mx-auto px-6 relative z-10">
-          <div className="grid md:grid-cols-3 gap-12 text-center md:text-left">
-            <div className="md:col-span-1">
-              <h2 className="text-3xl font-bold font-display mb-4 text-green-400">Joinville e Região Sul</h2>
-              <p className="text-gray-300 leading-relaxed">
-                Nossa matriz em Joinville - Santa Catarina permite atendimento logístico rápido a obras de infraestrutura, agronegócio e loteamentos no sul do Brasil. Conhecemos a fundo as legislações locais do IMA/SC.
-              </p>
-            </div>
-            <div className="md:col-span-2 grid sm:grid-cols-2 gap-8">
-              <div className="bg-white/10 backdrop-blur-sm p-6 rounded-xl border border-white/20">
-                <Target className="text-green-400 w-10 h-10 mb-4" />
-                <h3 className="text-xl font-bold mb-2">Visão Estratégica</h3>
-                <p className="text-gray-400 text-sm leading-relaxed">Não somos apenas executores. Mapeamos os riscos ambientais para garantir que sua obra não seja paralisada por embargo.</p>
-              </div>
-              <div className="bg-white/10 backdrop-blur-sm p-6 rounded-xl border border-white/20">
-                <Users className="text-green-400 w-10 h-10 mb-4" />
-                <h3 className="text-xl font-bold mb-2">Consultoria Especializada</h3>
-                <p className="text-gray-400 text-sm leading-relaxed">Uma equipe multidisciplinar com biólogos, engenheiros, geógrafos e arqueólogos, garantindo que nenhum estudo de conformidade ambiental seja terceirizado.</p>
-              </div>
-            </div>
+      {/* Technical Portfolio CTA - Monochromatic */}
+      <section className="py-32 bg-white">
+        <div className="container mx-auto px-6 text-center max-w-4xl border-4 border-dark p-16 relative">
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white px-8">
+            <Code className="w-12 h-12 text-dark" />
           </div>
-        </div>
-      </section>
-
-      {/* Portfolio CTA Section */}
-      <section className="py-24 bg-white">
-        <div className="container mx-auto px-6 text-center max-w-4xl">
-          <Award className="w-16 h-16 text-primary mx-auto mb-6" />
-          <h2 className="text-3xl md:text-5xl font-bold font-display mb-6 text-gray-800">Resultados Técnicos Comprovados</h2>
-          <p className="text-xl text-gray-600 mb-10 leading-relaxed text-balance">
-            Do resgate de fauna em indústrias ao licenciamento de complexos eólicos, nosso portfólio demonstra a capacidade de aprovação nos órgãos mais rigorosos do Brasil.
+          <h2 className="text-4xl md:text-5xl font-black uppercase text-dark mb-8 tracking-tighter mt-4">
+            Auditoria & Casos
+          </h2>
+          <p className="text-xl text-gray-600 mb-12 font-light text-balance leading-relaxed">
+            Consulte nossos memoriais técnicos. Projetos industriais, energia renovável e resgate do patrimônio validados por órgãos reguladores.
           </p>
-          <div className="flex flex-col sm:flex-row justify-center gap-4">
-             <Link href="/portfolio" className="bg-primary hover:bg-primary-dark text-white font-bold py-4 px-10 rounded-full text-lg transition duration-300 shadow-xl transform hover:scale-105">
-               Analisar Projetos (Case Studies)
+          <div className="flex justify-center">
+             <Link href="/portfolio" className="bg-primary hover:bg-dark text-white px-10 py-5 font-bold uppercase tracking-widest transition-all text-sm">
+               Analisar Repositório
              </Link>
           </div>
         </div>
