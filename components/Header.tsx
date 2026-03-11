@@ -45,7 +45,7 @@ const Header: React.FC = () => {
               Início
             </Link>
             <Link href="/sobre" className={`${baseLinkClasses} ${desktopLinkClasses} ${pathname === '/sobre' ? 'text-primary' : ''}`}>
-              Dossiê
+              Sobre
             </Link>
 
             {/* Mega Menu Dropdown */}
@@ -55,7 +55,7 @@ const Header: React.FC = () => {
               onMouseLeave={() => setIsServicesOpen(false)}
             >
               <button className={`${baseLinkClasses} ${desktopLinkClasses} flex items-center gap-1 ${pathname.startsWith('/servicos') ? 'text-primary' : ''}`}>
-                Escopo Técnico <ChevronDown size={16} className={`transition-transform duration-200 ${isServicesOpen ? 'rotate-180' : ''}`} />
+                Serviços <ChevronDown size={16} className={`transition-transform duration-200 ${isServicesOpen ? 'rotate-180' : ''}`} />
               </button>
 
               {/* Dropdown Content - Sharp Brutalist Box */}
@@ -86,11 +86,11 @@ const Header: React.FC = () => {
             </div>
 
             <Link href="/portfolio" className={`${baseLinkClasses} ${desktopLinkClasses} ${pathname === '/portfolio' ? 'text-primary' : ''}`}>
-              Auditorias
+              Portfólio
             </Link>
 
             <Link href="/contato" className="ml-6 bg-dark hover:bg-primary text-white font-bold py-3 px-8 text-sm uppercase tracking-widest transition-colors border border-dark hover:border-primary">
-              Contato Direto
+              Contato
             </Link>
           </nav>
 
