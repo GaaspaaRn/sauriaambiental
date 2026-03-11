@@ -25,18 +25,12 @@ export default function Contact() {
             <div>
               <h2 className="text-2xl font-bold font-display text-primary mb-6">Informações Corporativas</h2>
               <div className="space-y-5 text-gray-700">
-                <div className="flex items-start gap-4">
-                  <MapPin className="w-6 h-6 text-primary mt-1 flex-shrink-0" />
-                  <div>
-                    <span className="font-bold text-gray-800 block mb-1">Atendimento 100% Digital</span>
-                    <span>Abrangência em toda Santa Catarina<br />e região Sul do Brasil.</span>
-                  </div>
-                </div>
+
                 <div className="flex items-center gap-4">
                   <Mail className="w-6 h-6 text-primary flex-shrink-0" />
                   <div>
                     <span className="font-bold text-gray-800 block mb-1">E-mail Institucional</span>
-                    <a href="mailto:contato@sauriaambiental.com.br" className="hover:text-primary transition-colors">contato@sauriaambiental.com.br</a>
+                    <a href="mailto:sauriaconsultoria@gmail.com" className="hover:text-primary transition-colors">sauriaconsultoria@gmail.com</a>
                   </div>
                 </div>
                 <div className="flex items-center gap-4">

@@ -92,7 +92,7 @@ export default function Home() {
             <div className="lg:col-span-4 relative hidden lg:block h-full">
               <div className="absolute inset-0 bg-primary translate-x-8 translate-y-8 z-0"></div>
               <img 
-                src="https://images.pexels.com/photos/2317904/pexels-photo-2317904.jpeg?auto=compress&cs=tinysrgb&w=800" 
+                src="https://images.unsplash.com/photo-1555026903-8ed52b7ba1bd?auto=format&fit=crop&q=80&w=800"
                 alt="Operação ambiental e topografia" 
                 className="relative z-10 object-cover w-full h-[600px] grayscale hover:grayscale-0 transition-all duration-700"
               />
