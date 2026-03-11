@@ -10,20 +10,24 @@ export default function ContactForm() {
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         setStatus('submitting');
-        setMessage('');
+        
+        const form = e.target as HTMLFormElement;
+        const formData = new FormData(form);
+        const name = formData.get('name') as string;
+        const email = formData.get('email') as string;
+        const phone = formData.get('phone') as string;
+        const messageText = formData.get('message') as string;
 
-        // Simulate API call
-        await new Promise(resolve => setTimeout(resolve, 1500));
+        const whatsappText = `Olá, vim pelo site da Sáuria e gostaria de solicitar um orçamento/vistoria:\n\n*Nome/Empresa:* ${name}\n*E-mail:* ${email}\n*Telefone:* ${phone}\n*Detalhes:* ${messageText}`;
+        const encodedText = encodeURIComponent(whatsappText);
+        const url = `https://wa.me/5547988693054?text=${encodedText}`;
 
-        // Simulate success/error
-        if (Math.random() > 0.1) {
+        setTimeout(() => {
+            window.open(url, '_blank');
             setStatus('success');
-            setMessage('Sua mensagem foi enviada com sucesso! Um de nossos consultores entrará em contato em breve.');
-            (e.target as HTMLFormElement).reset();
-        } else {
-            setStatus('error');
-            setMessage('Ocorreu um erro ao enviar sua requisição. Por favor, tente novamente ou contate via WhatsApp.');
-        }
+            setMessage('Iniciando redirecionamento para o nosso WhatsApp, aguarde...');
+            form.reset();
+        }, 800);
     };
     
     return (

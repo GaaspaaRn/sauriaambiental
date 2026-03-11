@@ -66,7 +66,7 @@ const Footer: React.FC = () => {
             <ul className="space-y-3 text-gray-400">
               <li className="flex items-start gap-3">
                 <MapPin className="w-5 h-5 mt-1 text-primary flex-shrink-0" />
-                <span>Rua Walter Eichholz, 545 - Petrópolis, Joinville - Santa Catarina</span>
+                <span>Atendimento 100% Digital em toda Santa Catarina</span>
               </li>
               <li className="flex items-center gap-3">
                 <Mail className="w-5 h-5 text-primary flex-shrink-0" />
@@ -74,7 +74,7 @@ const Footer: React.FC = () => {
               </li>
               <li className="flex items-center gap-3">
                 <Phone className="w-5 h-5 text-primary flex-shrink-0" />
-                <a href="tel:+554734299271" className="hover:text-primary transition">(47) 3429-9271</a>
+                <a href="tel:+5547988693054" className="hover:text-primary transition">(47) 9 8869-3054</a>
               </li>
             </ul>
           </div>

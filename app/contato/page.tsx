@@ -28,8 +28,8 @@ export default function Contact() {
                 <div className="flex items-start gap-4">
                   <MapPin className="w-6 h-6 text-primary mt-1 flex-shrink-0" />
                   <div>
-                    <span className="font-bold text-gray-800 block mb-1">Matriz Joinville</span>
-                    <span>Rua Walter Eichholz, 545 - Petrópolis<br />Joinville - Santa Catarina, 89208-620</span>
+                    <span className="font-bold text-gray-800 block mb-1">Atendimento 100% Digital</span>
+                    <span>Abrangência em toda Santa Catarina<br />e região Sul do Brasil.</span>
                   </div>
                 </div>
                 <div className="flex items-center gap-4">
@@ -43,7 +43,7 @@ export default function Contact() {
                   <Phone className="w-6 h-6 text-primary flex-shrink-0" />
                   <div>
                     <span className="font-bold text-gray-800 block mb-1">Telefone Principal</span>
-                    <a href="tel:+554734299271" className="hover:text-primary transition-colors">(47) 3429-9271</a>
+                    <a href="tel:+5547988693054" className="hover:text-primary transition-colors">(47) 9 8869-3054</a>
                   </div>
                 </div>
                 <div className="flex items-center gap-4">
@@ -60,10 +60,10 @@ export default function Contact() {
               <h3 className="text-xl font-bold font-display text-primary mb-4">Plantão de Licenciamento</h3>
               <p className="text-sm text-gray-600 mb-6">Em caso de paralisações de obras, autos de infração ou emergências com órgãos ambientais (IMA, IBAMA), utilize nosso contato rápido.</p>
               <div className="flex flex-col xl:flex-row gap-4">
-                <a href="https://wa.me/554734299271" target="_blank" rel="noopener noreferrer" className="flex-1 flex items-center justify-center gap-2 bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-4 rounded-xl transition duration-300 shadow-md">
+                <a href="https://wa.me/5547988693054" target="_blank" rel="noopener noreferrer" className="flex-1 flex items-center justify-center gap-2 bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-4 rounded-xl transition duration-300 shadow-md">
                   <Bot size={20} /> WhatsApp
                 </a>
-                <a href="tel:+554734299271" className="flex-1 flex items-center justify-center gap-2 bg-dark hover:bg-gray-800 text-white font-bold py-3 px-4 rounded-xl transition duration-300 shadow-md">
+                <a href="tel:+5547988693054" className="flex-1 flex items-center justify-center gap-2 bg-dark hover:bg-gray-800 text-white font-bold py-3 px-4 rounded-xl transition duration-300 shadow-md">
                   <PhoneCall size={20} /> Ligar Direto
                 </a>
               </div>
@@ -78,18 +78,10 @@ export default function Contact() {
           </div>
         </div>
 
-        {/* Map Section */}
-        <div className="mt-16 rounded-3xl overflow-hidden shadow-lg border border-gray-100">
-          <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3574.653428255018!2d-48.8378875!3d-26.3697963!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94deaf7a58406797%3A0x44619a911a3b11d0!2sR.%20Walter%20Eichholz%2C%20545%20-%20Petr%C3%B3polis%2C%20Joinville%20-%20SC%2C%2089208-620!5e0!3m2!1spt-BR!2sbr!4v1622557889151!5m2!1spt-BR!2sbr"
-            width="100%"
-            height="450"
-            style={{ border: 0 }}
-            allowFullScreen={true}
-            loading="lazy"
-            referrerPolicy="no-referrer-when-downgrade"
-            title="Sede da Sáuria Consultoria Ambiental em Joinville, SC"
-          ></iframe>
+        {/* Atendimento Digital Info Area */}
+        <div className="mt-16 rounded-3xl overflow-hidden shadow-lg border border-gray-100 bg-white p-12 text-center">
+             <h3 className="text-2xl font-bold font-display text-dark mb-4">Consultoria Ambiental Digital e Prática</h3>
+             <p className="text-gray-600 max-w-2xl mx-auto">Para maior agilidade e transparência, operamos de forma 100% digital com envios e protocolos eletrônicos, alinhados com vistorias in-loco estritamente programadas de acordo com as necessidades do seu empreendimento.</p>
         </div>
       </div>
     </div>
