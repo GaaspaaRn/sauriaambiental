@@ -3,7 +3,8 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Leaf, Menu, X, ChevronDown, ArrowRight } from 'lucide-react';
+import { Menu, X, ChevronDown, ArrowRight } from 'lucide-react';
+import { SauriaLogo } from './SauriaLogo';
 import { servicesData } from '@/data/servicesData';
 
 const Header: React.FC = () => {
@@ -34,7 +35,7 @@ const Header: React.FC = () => {
       <div className="container mx-auto px-6">
         <div className="flex justify-between items-center">
           <Link href="/" className="flex items-center gap-3 text-2xl font-black font-display text-dark uppercase tracking-tighter hover:text-primary transition-colors">
-            <Leaf className="w-8 h-8 text-primary" />
+            <SauriaLogo className="w-8 h-8 text-primary" />
             <span className="mt-1">Sauria Ambiental</span>
           </Link>
 

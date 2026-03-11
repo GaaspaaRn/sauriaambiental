@@ -1,6 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
-import { Leaf, Facebook, Instagram, Linkedin, Mail, Phone, MapPin } from 'lucide-react';
+import { Facebook, Instagram, Linkedin, Mail, Phone, MapPin } from 'lucide-react';
+import { SauriaLogo } from './SauriaLogo';
 
 const Footer: React.FC = () => {
   const socialLinks = [
@@ -24,7 +25,7 @@ const Footer: React.FC = () => {
           {/* About Section */}
           <div className="space-y-4">
             <Link href="/" className="flex items-center gap-2 text-2xl font-bold font-display text-white">
-              <Leaf className="w-8 h-8 text-primary" />
+              <SauriaLogo className="w-8 h-8 text-primary" />
               <span>Sauria Ambiental</span>
             </Link>
             <p className="text-gray-400">
