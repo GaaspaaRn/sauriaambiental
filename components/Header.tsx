@@ -35,7 +35,7 @@ const Header: React.FC = () => {
         <div className="flex justify-between items-center">
           <Link href="/" className="flex items-center gap-3 text-2xl font-black font-display text-dark uppercase tracking-tighter hover:text-primary transition-colors">
             <Leaf className="w-8 h-8 text-primary" />
-            <span className="mt-1">Sauria Ambiental.</span>
+            <span className="mt-1">Sauria Ambiental</span>
           </Link>
 
           {/* Desktop Navigation */}
