@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import Link from 'next/link';
 import { Leaf, Facebook, Instagram, Linkedin, Mail, Phone, MapPin } from 'lucide-react';
 
 const Footer: React.FC = () => {
@@ -23,24 +23,24 @@ const Footer: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-10">
           {/* About Section */}
           <div className="space-y-4">
-            <NavLink to="/" className="flex items-center gap-2 text-2xl font-bold font-display text-white">
+            <Link href="/" className="flex items-center gap-2 text-2xl font-bold font-display text-white">
               <Leaf className="w-8 h-8 text-primary"/>
               <span>Sáuria Ambiental</span>
-            </NavLink>
+            </Link>
             <p className="text-gray-400">
-              Consultoria especializada em meio ambiente, patrimônio cultural e arqueologia para um futuro sustentável.
+              Consultoria especializada em meio ambiente, patrimônio cultural e arqueologia para um futuro sustentável. Atuando com excelência em Joinville e Santa Catarina.
             </p>
             <div className="flex space-x-4 mt-4">
-              {socialLinks.map((link, index) => (
+              {socialLinks.map((social, index) => (
                 <a 
                   key={index} 
-                  href={link.href} 
-                  target={link.href !== '#' ? '_blank' : undefined}
-                  rel={link.href !== '#' ? 'noopener noreferrer' : undefined}
+                  href={social.href} 
+                  target={social.href !== '#' ? '_blank' : undefined}
+                  rel={social.href !== '#' ? 'noopener noreferrer' : undefined}
                   className="text-gray-400 hover:text-primary transition duration-300"
-                  aria-label={link.label}
+                  aria-label={social.label}
                 >
-                  <link.icon size={24} />
+                  <social.icon size={24} />
                 </a>
               ))}
             </div>
@@ -52,9 +52,9 @@ const Footer: React.FC = () => {
             <ul className="space-y-2">
               {quickLinks.map(link => (
                 <li key={link.to}>
-                  <NavLink to={link.to} className="hover:text-primary transition duration-300">
+                  <Link href={link.to} className="hover:text-primary transition duration-300">
                     {link.label}
-                  </NavLink>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -79,20 +79,23 @@ const Footer: React.FC = () => {
             </ul>
           </div>
 
-          {/* Newsletter (Placeholder) */}
            <div>
-            <h3 className="text-lg font-semibold text-white mb-4 font-display">Newsletter</h3>
-            <p className="text-gray-400 mb-4">Receba novidades e insights sobre o setor ambiental.</p>
+            <h3 className="text-lg font-semibold text-white mb-4 font-display">Sáuria Insights</h3>
+            <p className="text-gray-400 mb-4">Receba novidades e informações sobre licenciamento ambiental.</p>
             <form className="flex">
-              <input type="email" placeholder="Seu e-mail" className="w-full px-4 py-2 rounded-l-md text-dark focus:outline-none" />
+              <input type="email" placeholder="Seu melhor e-mail" className="w-full px-4 py-2 rounded-l-md text-dark focus:outline-none" />
               <button type="submit" className="bg-primary text-white px-4 py-2 rounded-r-md hover:bg-primary-dark transition">
-                Inscrever
+                Assinar
               </button>
             </form>
           </div>
         </div>
-        <div className="border-t border-gray-700 pt-6 mt-10 text-center text-gray-500 text-sm">
-          <p>&copy; {new Date().getFullYear()} Sáuria Consultoria Ambiental. Todos os direitos reservados.</p>
+        <div className="border-t border-gray-700 pt-6 mt-10 flex flex-col md:flex-row justify-between items-center text-gray-500 text-sm">
+          <p>&copy; {new Date().getFullYear()} Sáuria Consultoria Ambiental. Joinville/SC. Todos os direitos reservados.</p>
+          <div className="mt-4 md:mt-0 flex gap-4">
+            <Link href="/sobre" className="hover:text-primary transition">Sobre a Empresa</Link>
+            <Link href="/servicos" className="hover:text-primary transition">Nossos Serviços</Link>
+          </div>
         </div>
       </div>
     </footer>
